@@ -10,11 +10,11 @@ import {
 @Entity('user_tokens')
 class UserToken {
     @PrimaryGeneratedColumn('uuid')
-    id: string;
+    user_id: string;
 
     @Column()
     @Generated('uuid')
-    name: string;
+    token: string;
 
     @CreateDateColumn()
     created_at: Date;

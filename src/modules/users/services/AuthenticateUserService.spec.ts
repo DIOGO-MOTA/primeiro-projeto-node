@@ -9,7 +9,7 @@ describe('AuthenticateUser', () => {
         const fakeUsersRepository = new FakeUsersRepository();
         const fakeHashProvider = new FakeHashProvider();
 
-        const CreateUser = new CreateUserService(
+        const createUser = new CreateUserService(
             fakeUsersRepository,
             fakeHashProvider,
         );
@@ -18,7 +18,7 @@ describe('AuthenticateUser', () => {
             fakeHashProvider,
         );
 
-        const user = await CreateUser.execute({
+        const user = await createUser.execute({
             name: 'John Doe',
             email: 'johndoe@example.com',
             password: '123456',
@@ -54,7 +54,7 @@ describe('AuthenticateUser', () => {
         const fakeUsersRepository = new FakeUsersRepository();
         const fakeHashProvider = new FakeHashProvider();
 
-        const CreateUser = new CreateUserService(
+        const createUser = new CreateUserService(
             fakeUsersRepository,
             fakeHashProvider,
         );
@@ -63,7 +63,7 @@ describe('AuthenticateUser', () => {
             fakeHashProvider,
         );
 
-        await CreateUser.execute({
+        await createUser.execute({
             name: 'John Doe',
             email: 'johndoe@example.com',
             password: '123456',
