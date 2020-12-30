@@ -24,8 +24,3 @@ export default class AppointmentsController {
         return response.json(appointment);
     }
 }
-// appointmentsRouter.get('/', async (request, response) => {
-//     const appointments = await appointmentsRepository.find();
-
-//     return response.json(appointments);
-// });
