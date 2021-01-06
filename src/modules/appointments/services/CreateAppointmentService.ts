@@ -8,6 +8,7 @@ import IAppointmentsRepository from '../repositories/IAppointmentsRepository';
 
 interface IRequest {
     provider_id: string;
+    user_id: string;
     date: Date;
 }
 
@@ -21,6 +22,7 @@ class CreateAppointmentService {
     public async execute({
         date,
         provider_id,
+        user_id,
     }: IRequest): Promise<Appointment> {
         const appointmentDate = startOfHour(date);
 
@@ -29,11 +31,12 @@ class CreateAppointmentService {
         );
 
         if (findAppointmentInSameDate) {
-            throw new AppError('Horario já esta reservado');
+            throw new AppError('This appointment is already booked');
         }
 
         const appointment = await this.appointmentsRepository.create({
             provider_id,
+            user_id,
             date: appointmentDate,
         });
 
